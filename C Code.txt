@@ -1,0 +1,12 @@
+int max(int a, int b){
+    return (a >= b)? a : b;
+}
+int maxSubArray(int* nums, int numsSize) {
+    int mark = nums[0], sum = 0;
+    for(int i = 0; i < numsSize; ++i){
+        sum += nums[i];
+        mark = max(mark, sum);
+        sum = max(sum, 0);
+    }
+    return mark;
+}
